@@ -23,3 +23,6 @@ __b)__ `utils.py`
 
 Some utility functions
 
+__USAGE__
+
+See `example.py` and documentation in `predict.py`
