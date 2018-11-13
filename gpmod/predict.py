@@ -13,6 +13,15 @@ from scipy import sparse as sp
 from gpmod.utils import extract_seed_sets
 
 class diffusion_SSL:
+	"""
+	class of graph-based diffusions
+
+	1) Load a graph adjacency matrix
+
+	2) Configure diffusion parameters
+
+	3) Seed and run diffusion
+	"""
 
 	avail_pred_types = ('hk', 'ppr', 'custom')
 
