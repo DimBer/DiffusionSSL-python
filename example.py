@@ -25,17 +25,19 @@ ssl.SetNumClasses(y_true.shape[1])
 ssl.SetBalancing_ON()
 #ssl.SetBalancing_OFF()
 
-predictions_ppr = ssl.SeedAndPredict(seedset)
+predictions = ssl.SeedAndPredict(seedset) 
+# Get reference to soft label predictions attribute
+# Run:  predictions = np.array(ssl.SeedAndPredict(seedset)) to obtain local copy..
 
-print( "\nPersonalized PageRank predictions", predictions_ppr,"\n")
+print( "\nPersonalized PageRank predictions", predictions,"\n")
 
 # switch to Heat Kernel
 
 ssl.SetPredictorType('hk')
 
-predictions_hk = ssl.SeedAndPredict(seedset)
+ssl.SeedAndPredict(seedset)
 
-print( "\nHeat Kernel predictions", predictions_hk,"\n")
+print( "\nHeat Kernel predictions", predictions,"\n")
 
 # customized diffusion
 
@@ -46,8 +48,7 @@ ssl.SetPredictorType('custom')
 ssl.SetNumSteps(len(coefficients))
 ssl.InputCoefs(list(coefficients))
 
+ssl.SeedAndPredict(seedset)
 
-predictions_custom = ssl.SeedAndPredict(seedset)
-
-print( "\ncustom diffusion predictions", predictions_custom,"\n")
+print( "\ncustom diffusion predictions", predictions,"\n")
 
